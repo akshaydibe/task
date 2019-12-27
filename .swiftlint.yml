@@ -1,0 +1,22 @@
+line_length:
+  - 300 # warning
+  - 400 # error
+
+disabled_rules: # rule identifiers to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - type_name
+  - identifier_name
+  - force_cast
+  - force_try
+  - trailing_whitespace
+  - vertical_whitespace
+  - void_return
+  - opening_brace
+  - function_body_length
+  - redundant_discardable_let
+  - statement_position
+  - line_length
+  - file_length
+  - type_body_length
