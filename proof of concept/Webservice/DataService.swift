@@ -19,50 +19,37 @@ struct DataService
     
     mutating func callWebservice(completion: @escaping (Response?, Error?) -> ()) {
         
-        if let path = Bundle.main.path(forResource: "test", ofType: "json") {
+
+        let headers = [
+            "cache-control": "no-cache"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, _ , error) -> Void in
+            guard let data = data else {return}
+
             do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+
                 let decoder = JSONDecoder()
-                let dataDictionar = try decoder.decode(Response.self, from: data)
+                let dataDictionar = try decoder.decode(Response.self, from: Data(String(data: data, encoding: .ascii)!.utf8))
                 print(dataDictionar)
                 completion(dataDictionar,nil)
- 
-            } catch {
-                // handle error
+
+            }catch let err {
+                print(err)
             }
-        }
-        
-        
-//        let headers = [
-//            "cache-control": "no-cache"
-//        ]
-//
-//        let request = NSMutableURLRequest(url: NSURL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")! as URL,
-//                                          cachePolicy: .useProtocolCachePolicy,
-//                                          timeoutInterval: 10.0)
-//        request.httpMethod = "GET"
-//        request.allHTTPHeaderFields = headers
-//
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            guard let data = data else {return}
-//
-//            do {
-//
-//                let decoder = JSONDecoder()
-//                let dataDictionar = try decoder.decode(Response.self, from: data)
-//                print(dataDictionar)
-//                completion(dataDictionar,nil)
-//
-//            }catch let err {
-//                print(err)
-//            }
-//            
-//            guard let err = error else {return}
-//            completion(nil,err)
-//        })
-//
-//        dataTask.resume()
+
+            guard let err = error else {return}
+            completion(nil,err)
+        })
+
+        dataTask.resume()
         
 
     }

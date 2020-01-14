@@ -26,7 +26,7 @@ class viewModel {
         didSet{ self.showAlertClosure?() }
     }
     
-    var isLoading : Bool = false {
+    var isLoading : Bool = true {
         didSet{ self.updateLoadingStatus?() }
     }
     

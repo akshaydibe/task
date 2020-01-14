@@ -36,8 +36,7 @@ class ViewController: UIViewController {
     
     // MARK: - Networking
     fileprivate func callWebservice(){
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.activityIndicatorStart()
         dataViewModel.callWebservice()
         dataViewModel.updateLoadingStatus = {
             let _ = self.dataViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
@@ -51,8 +50,14 @@ class ViewController: UIViewController {
         }
         
         dataViewModel.didFinishFetch = {
+            DispatchQueue.main.async {
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+            }
 
         }
+
         refreshControl.endRefreshing()
     }
     
