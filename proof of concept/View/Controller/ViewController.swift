@@ -95,9 +95,9 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
 
 
         if let image = self.dataViewModel.rows[indexPath.row].imageHref {
-            DataService.sharedInstance.downloadImages(image: image) { (downloadedImage) in
-                imageView.image = downloadedImage
-            }
+            let newImage = image.replacingOccurrences(of: "http", with: "https")
+            imageView.sd_setImage(with: URL(string: newImage), placeholderImage: UIImage(named: "placeholder.png"))
+
         }else {
             imageView.image = UIImage.init(named: "placeholder.png")
         }
