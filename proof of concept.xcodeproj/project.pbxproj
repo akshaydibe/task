@@ -19,7 +19,6 @@
 		9C817828239FBD1F0064040A /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C817827239FBD1F0064040A /* dataModel.swift */; };
 		9C81782A239FE8C90064040A /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C817829239FE8C90064040A /* viewModel.swift */; };
 		9C81782D239FEEB00064040A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C81782C239FEEB00064040A /* extension.swift */; };
-		9C817833239FFD6B0064040A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C817832239FFD6B0064040A /* test.json */; };
 		9C81783823A018540064040A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C81783723A018540064040A /* placeholder.png */; };
 		D258F582CDAC5215ED05C586 /* Pods_proof_of_concept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD213CE5A0358519CBFD1C88 /* Pods_proof_of_concept.framework */; };
 		FE1BFE7861BAC8693F191FC1 /* Pods_proof_of_conceptTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB554C3E1328B9D937A5B86B /* Pods_proof_of_conceptTests.framework */; };
@@ -65,7 +64,6 @@
 		9C817827239FBD1F0064040A /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		9C817829239FE8C90064040A /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
 		9C81782C239FEEB00064040A /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
-		9C817832239FFD6B0064040A /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		9C81783723A018540064040A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D724FFED68281A47E6BAFF73 /* Pods-proof of conceptUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proof of conceptUITests.debug.xcconfig"; path = "Target Support Files/Pods-proof of conceptUITests/Pods-proof of conceptUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB554C3E1328B9D937A5B86B /* Pods_proof_of_conceptTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proof_of_conceptTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +142,6 @@
 				9C817824239F87DE0064040A /* View Model */,
 				9C81782B239FEE970064040A /* Extension */,
 				9C8177FC239F87130064040A /* Info.plist */,
-				9C817832239FFD6B0064040A /* test.json */,
 			);
 			path = "proof of concept";
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C8177FB239F87130064040A /* LaunchScreen.storyboard in Resources */,
-				9C817833239FFD6B0064040A /* test.json in Resources */,
 				9C8177F8239F87130064040A /* Assets.xcassets in Resources */,
 				9C81783823A018540064040A /* placeholder.png in Resources */,
 				9C8177F6239F87110064040A /* Main.storyboard in Resources */,
@@ -689,7 +685,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "idbiintech.proof-of-concept";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -709,7 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "idbiintech.proof-of-concept";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
