@@ -65,9 +65,9 @@ class viewModel {
         })
         
     }
-    
+
     // MARK: - UI Logic
-    private func setData(with data: Response){
+    func setData(with data: Response){
         
 
         if let title = data.title {

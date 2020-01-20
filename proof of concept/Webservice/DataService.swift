@@ -24,9 +24,8 @@ struct DataService
             "cache-control": "no-cache"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: NSURL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")! as URL,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
+        
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
 

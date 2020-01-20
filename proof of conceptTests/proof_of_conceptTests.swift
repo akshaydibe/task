@@ -19,16 +19,20 @@ class proof_of_conceptTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testViewModel(){
+        
+        let row = rows(title: "Beavers", description: "Beavers are second only to humans in their ability to manipulate and change their environment. They can measure up to 1.3 metres long. A group of beavers is called a colony", imageHref: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg")
+        let response = Response(title: "About Canada", rows: [row])
+        
+        XCTAssertEqual(response.title, "About Canada")
+        XCTAssertTrue((response.rows != nil))
+        
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testDecoding() throws {
+        let jsonData = try Data(contentsOf: URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!)
+        XCTAssertNoThrow(try JSONDecoder().decode(Response.self, from: Data(String(data: jsonData, encoding: .ascii)!.utf8)))
     }
 
 }
